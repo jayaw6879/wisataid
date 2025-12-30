@@ -1,0 +1,262 @@
+/* ============================================================
+   1. RESET & GLOBAL STYLES
+============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #0b0f14; /* Background Gelap Premium */
+    color: #e5ecef;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   2. NAVBAR
+============================================================ */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(18, 42, 59, 0.85); /* Sedikit transparan */
+    backdrop-filter: blur(12px); /* Efek blur di belakang navbar */
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: sticky; /* Navbar menempel di atas saat scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.logo span {
+    color: #3bffb3; /* Warna Aksen Neon Hijau */
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu li a {
+    color: #cfe6e9;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    color: #3bffb3;
+}
+
+.btn-login {
+    background: #3bffb3;
+    color: #0b0f14 !important;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(59, 255, 179, 0.4);
+}
+
+/* ============================================================
+   3. HEADER HALAMAN
+============================================================ */
+.destination-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.destination-header h1 {
+    font-size: 3rem;
+    background: linear-gradient(to right, #ffffff, #3bffb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.destination-header p {
+    font-size: 1.1rem;
+    color: #a7b6bb;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   4. GRID KARTU DESTINASI
+============================================================ */
+.destination-list {
+    padding: 0 20px 80px;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dest-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1/1; /* Membuat kartu kotak presisi */
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.dest-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(59, 255, 179, 0.2);
+    border-color: #3bffb3;
+}
+
+.dest-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.dest-card:hover img {
+    transform: scale(1.1); /* Zoom gambar saat hover */
+}
+
+/* Overlay Hitam di Bawah Kartu */
+.dest-card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 20px 15px 15px;
+    text-align: center;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.dest-card:hover .overlay {
+    transform: translateY(0);
+}
+
+.dest-card .overlay h3 {
+    font-size: 1.1rem;
+    color: #3bffb3;
+    margin-bottom: 4px;
+}
+
+.dest-card .overlay p {
+    font-size: 0.85rem;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000; /* Paling depan */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85); /* Latar gelap transparan */
+    backdrop-filter: blur(8px); /* Efek blur kaca */
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: #111820;
+    border: 1px solid #3bffb3; /* Garis tepi neon */
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    color: #e5ecef;
+    box-shadow: 0 0 50px rgba(59, 255, 179, 0.15);
+    animation: slideUp 0.4s ease;
+}
+
+/* Tombol Close (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #a7b6bb;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #3bffb3;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.modal-content h2 {
+    font-size: 2rem;
+    color: #3bffb3;
+    margin-bottom: 5px;
+}
+
+.modal-loc {
+    display: block;
+    font-size: 1rem;
+    color: #9db5bc;
+    font-style: italic;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: #e5ecef;
+}
+
+/* Animasi Popup */
+@keyframes fadeIn {
+    from {opacity: 0;} to {opacity: 1;}
+}
+@keyframes slideUp {
+    from {transform: translateY(50px); opacity: 0;} to {transform: translateY(0); opacity: 1;}
+}
+
+@media (max-width: 768px) {
+    .destination-header h1 { font-size: 2.2rem; }
+    .destination-grid { gap: 15px; }
+    .modal-content { margin: 20% auto; padding: 20px; }
+    .modal-content img { height: 200px; }
+}
