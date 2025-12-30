@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Service | Wisata.id</title>
+    <link rel="stylesheet" href="../../assets/css/customer.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+    <div class="logo">Wisata<span>.id</span></div>
+
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinasi.html">Destinasi</a></li>
+        <li><a href="paket.html">Paket Wisata</a></li>
+        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="customer.html" class="active">Customer Service</a></li>
+        <li><a class="btn-login" href="login.html">Login</a></li>
+    </ul>
+</nav>
+
+<!-- ================= CUSTOMER SERVICE ================= -->
+<section id="customer-service">
+    <h2>Customer Service</h2>
+    <p>Hubungi kami jika Anda memiliki pertanyaan, kritik, atau keluhan.</p>
+
+    <!-- FORM CUSTOMER SERVICE -->
+    <form action="proses_cs.php" method="POST">
+        <table>
+            <tr>
+                <td><label for="nama">Nama Lengkap</label></td>
+                <td>:</td>
+                <td>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td>:</td>
+                <td>
+                    <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="nohp">No. HP</label></td>
+                <td>:</td>
+                <td>
+                    <input type="tel" id="nohp" name="nohp" placeholder="08xxxxxxxxxx">
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="kategori">Kategori</label></td>
+                <td>:</td>
+                <td>
+                    <select id="kategori" name="kategori" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        <option value="informasi">Informasi</option>
+                        <option value="reservasi">Reservasi</option>
+                        <option value="pembayaran">Pembayaran</option>
+                        <option value="keluhan">Keluhan</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="pesan">Pesan</label></td>
+                <td>:</td>
+                <td>
+                    <textarea id="pesan" name="pesan" rows="5" placeholder="Tuliskan pesan Anda..." required></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" align="center">
+                    <button type="submit">Kirim Pesan</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>
+
+</body>
+</html>
