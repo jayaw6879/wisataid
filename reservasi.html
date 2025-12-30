@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi - Wisata.id</title>
+    <link rel="stylesheet" href="../../assets/css/reservasi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .qr-image {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: block;
+            border: 2px solid #3bffb3;
+            box-shadow: 0 0 15px rgba(59, 255, 179, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="logo">Wisata<span>.id</span></div>
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinasi.html">Destinasi</a></li>
+        <li><a href="paket.html">Paket Wisata</a></li>
+        <li><a href="reservasi.html" class="active">Reservasi</a></li>
+        <li><a href="customer.html">Customer Service</a></li>
+        <li><a class="btn-login" href="login.html">Masuk</a></li>
+    </ul>
+</nav>
+
+<section class="reservasi">
+    <div class="reservasi-container">
+        <h1>Form Reservasi & Pembayaran</h1>
+        <p style="text-align: center; color: #a7b6bb; margin-bottom: 30px;">
+            Lengkapi data untuk mengamankan slot liburanmu.
+        </p>
+
+        <form id="formReservasi" action="proses_reservasi.php" method="POST">
+            
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telepon">No. Telepon / WhatsApp</label>
+            <input type="text" id="telepon" name="telepon" required>
+
+            <label for="paket">Paket Wisata</label>
+            <select id="paket" name="paket" required>
+                <option value="">-- Pilih Paket --</option>
+                <option value="rajaampat">Paket Raja Ampat (IDR 7.500.000)</option>
+                <option value="bromo">Paket Bromo & Ijen (IDR 1.800.000)</option>
+                <option value="toba">Paket Danau Toba (IDR 2.800.000)</option>
+                <option value="bali">Paket Bali (IDR 2.500.000)</option>
+                <option value="komodo">Paket Komodo (IDR 5.500.000)</option>
+                <option value="morotai">Paket Sejarah Morotai (IDR 3.200.000)</option>
+                <option value="baluran">Paket Safari Baluran (IDR 950.000)</option>
+                <option value="wakatobi">Paket Wakatobi Dive (IDR 4.500.000)</option>
+            </select>
+
+            <div class="row-input">
+                <div class="col">
+                    <label for="tanggal">Tanggal</label>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </div>
+                <div class="col">
+                    <label for="jumlah">Peserta</label>
+                    <input type="number" id="jumlah" name="jumlah" min="1" value="1" required>
+                </div>
+            </div>
+
+            <label for="catatan">Catatan (Opsional)</label>
+            <textarea id="catatan" name="catatan" rows="2"></textarea>
+
+            <button type="submit" class="btn-submit">Lanjut ke Pembayaran</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Hanya biarkan kode untuk mengambil paket dari URL
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paketDipilih = urlParams.get('paket');
+        if(paketDipilih) document.getElementById('paket').value = paketDipilih;
+    }
+
+    /* SEMUA KODE form.addEventListener DAN preventDefault() 
+       SUDAH DIHAPUS AGAR DATA BISA TERKIRIM KE DATABASE 
+    */
+</script>
+
+</body>
+</html>
