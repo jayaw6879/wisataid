@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Wisata.id</title>
+
+    <!-- FILE CSS UTAMA -->
+    <link rel="stylesheet" href="../../assets/css/index.css">
+
+    <style>
+        /* ===== POP-UP BUTTON ===== */
+        .btn-popup {
+            background: linear-gradient(135deg, #3bffb3, #00c078);
+            color: #0d1117;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(59,255,179,0.3);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .btn-popup:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(59,255,179,0.5);
+        }
+
+        /* ===== POP-UP MENU ===== */
+        .popup-menu {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: #111820;
+            border: 2px solid #3bffb3;
+            border-radius: 16px;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            transition: 0.3s ease;
+            z-index: 200;
+        }
+        .popup-menu.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .popup-menu button {
+            background: #18232b;
+            color: #cfe6e9;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 12px 24px;
+            border: 2px solid #3bffb3;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .popup-menu button:hover {
+            background: #3bffb3;
+            color: #0d1117;
+            transform: translateY(-2px);
+        }
+
+        /* ===== OVERLAY ===== */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            z-index: 150;
+        }
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+    <div class="logo">Wisata<span>.id</span></div>
+
+    <ul class="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="destinasi.html">Destinasi</a></li>
+        <li><a href="paket.html">Paket Wisata</a></li>
+        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="customer.html">Customer Service</a></li>
+        <li><a class="btn-login" href="login.html">Login</a></li>
+    </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="text">
+        <h1>Eksplorasi Wisata Terbaik di Indonesia</h1>
+        <p>Wisata.id menghadirkan pengalaman perjalanan modern & premium. Temukan destinasi alam, budaya, dan petualangan terbaik dari Sabang sampai Merauke.</p>
+
+        <!-- POPUP BUTTON -->
+        <button class="btn-popup">Mulai Jelajahi</button>
+    </div>
+
+    <div class="image-wrap">
+        <!-- Bisa isi gambar hero kalau ada -->
+    </div>
+</section>
+
+<!-- OVERLAY HITAM -->
+<div class="overlay" id="overlay"></div>
+
+<!-- POP-UP MENU -->
+<div class="popup-menu" id="popupMenu">
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="location.href='destinasi.html'">Destinasi</button>
+    <button onclick="location.href='paket.html'">Paket Wisata</button>
+    <button onclick="location.href='reservasi.html'">Reservasi</button>
+    <button onclick="location.href='customer.html'">Customer Service</button>
+    <button onclick="location.href='../home/login.html'">Login</button>
+</div>
+
+<!-- POPUP SCRIPT -->
+<script>
+    const btnPopup = document.querySelector('.btn-popup');
+    const popupMenu = document.getElementById('popupMenu');
+    const overlay = document.getElementById('overlay');
+
+    btnPopup.addEventListener('click', () => {
+        popupMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        popupMenu.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+</script>
+
+<!-- POPULAR DESTINATIONS -->
+<section class="popular">
+    <div class="popular-header">
+        <h2>Destinasi Populer</h2>
+        <p>Pilihan wisata paling diminati sepanjang tahun</p>
+    </div>
+
+    <div class="popular-grid">
+
+        <div class="pop-card">
+            <img src="../../assets/images/rajaampat.jpg" alt="Raja Ampat">
+            <div class="pop-content">
+                <h3>Raja Ampat</h3>
+                <p class="location">Papua Barat</p>
+            </div>
+        </div>
+
+        <div class="pop-card">
+            <img src="../../assets/images/bromo.jpg" alt="Gunung Bromo">
+            <div class="pop-content">
+                <h3>Gunung Bromo</h3>
+                <p class="location">Lumajang, Jawa Timur</p>
+            </div>
+        </div>
+
+        <div class="pop-card">
+            <img src="../../assets/images/toba.jpg" alt="Danau Toba">
+            <div class="pop-content">
+                <h3>Danau Toba</h3>
+                <p class="location">Sumatera Utara</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
