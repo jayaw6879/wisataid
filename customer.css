@@ -1,0 +1,191 @@
+/* =========================================
+   GLOBAL
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #0b0f14;
+    color: #e5ecef;
+    line-height: 1.6;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(18, 42, 59, 0.72);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #3bffb3;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-menu li a {
+    color: #cfe6e9;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    color: #3bffb3;
+}
+
+.btn-login {
+    background: #3bffb3;
+    color: #0f1317 !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-login:hover {
+    background: #29eaa0;
+}
+
+/* =========================================
+   CUSTOMER SERVICE SECTION
+========================================= */
+#customer-service {
+    padding: 80px 40px;
+}
+
+#customer-service h2 {
+    text-align: center;
+    font-size: 34px;
+    color: #3bffb3;
+    margin-bottom: 10px;
+}
+
+#customer-service p {
+    text-align: center;
+    color: #9db5bc;
+    margin-bottom: 45px;
+    font-size: 15px;
+}
+
+/* FORM BOX */
+#customer-service form {
+    max-width: 720px;
+    margin: auto;
+    background: #111820;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* TABLE FORM */
+#customer-service table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 18px;
+}
+
+#customer-service td {
+    font-size: 14px;
+    color: #cfe6e9;
+}
+
+/* INPUT, SELECT, TEXTAREA */
+#customer-service input,
+#customer-service select,
+#customer-service textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: #18232b;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    color: #e5ecef;
+    font-size: 14px;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+#customer-service textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#customer-service input::placeholder,
+#customer-service textarea::placeholder {
+    color: #6f8a91;
+}
+
+/* FOCUS */
+#customer-service input:focus,
+#customer-service select:focus,
+#customer-service textarea:focus {
+    border-color: #3bffb3;
+    box-shadow: 0 0 0 2px rgba(59,255,179,0.15);
+}
+
+/* BUTTON */
+#customer-service button {
+    background: linear-gradient(135deg, #3bffb3, #00c078);
+    border: none;
+    padding: 13px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0d1117;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(59,255,179,0.3);
+    transition: 0.25s ease;
+}
+
+#customer-service button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(59,255,179,0.5);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 600px) {
+    .nav {
+        padding: 16px 22px;
+    }
+
+    .nav-menu {
+        gap: 16px;
+        font-size: 14px;
+    }
+
+    #customer-service {
+        padding: 60px 22px;
+    }
+
+    #customer-service form {
+        padding: 28px;
+    }
+
+    #customer-service h2 {
+        font-size: 28px;
+    }
+}
