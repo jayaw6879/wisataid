@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Wisata.id</title>
+
+    <!-- CSS UTAMA -->
+    <link rel="stylesheet" href="../../assets/css/login.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="nav">
+    <div class="logo">Wisata<span>.id</span></div>
+
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinasi.html">Destinasi</a></li>
+        <li><a href="paket.html">Paket Wisata</a></li>
+        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="customer.html">Customer Service</a></li>
+        <li><a href="login.html" class="btn-login active">Login</a></li>
+    </ul>
+</nav>
+
+<!-- ================= LOGIN SECTION ================= -->
+<section class="login-section">
+    <div class="login-box">
+        <h2>Login</h2>
+        <p>Masuk untuk mengakses layanan Wisata.id</p>
+
+        <!-- FORM LOGIN -->
+        <form onsubmit="return loginCheck()">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="admin@wisata.id"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="123456"
+                    required>
+            </div>
+
+            <button type="submit" class="btn-submit">Login</button>
+        </form>
+
+        <div class="login-footer">
+            <p>Belum punya akun? <a href="register.html">Daftar</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SCRIPT LOGIN TANPA SESSION ================= -->
+<script>
+function loginCheck() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // AKUN DUMMY (UNTUK TUGAS)
+    if (email === "admin@wisata.id" && password === "123456") {
+        alert("Login berhasil!");
+        window.location.href = "../home/index.html";
+    } else {
+        alert("Email atau password salah!");
+    }
+
+    return false; // mencegah reload
+}
+</script>
+
+</body>
+</html>
